@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>{{ recipe.name }}</title>
+</head>
+<body>
+    <h1> {{ recipe.name }}</h1>
+    {{ recipe.type }} </br>
+    {{ recipe.subtype }} </br>
+    {{ recipe.default }} </br>
+
+    <h3>Malt</h3>
+    {% for malt in recipe.malt_set.all %}
+        <ul>
+            <li>Name: {{ malt.name }}</li>
+            <li>Amount: {{ malt.amount }}</li>
+        </ul>
+    {% endfor %}
+
+    <h3>Hops</h3>
+    {% for hops in recipe.hops_set.all %}
+        <ul>
+            <li>Name: {{ hops.name }}</li>
+            <li>Amount: {{ hops.amount }}</li>
+        </ul>
+    {% endfor %}
+
+    <h3>Yeast</h3>
+    {% for yeast in recipe.yeast_set.all %}
+        <ul>
+            <li>Name: {{ yeast.name }}</li>
+            <li>Amount: {{ yeast.amount }}</li>
+        </ul>
+    {% endfor %}
+</body>
+</html>
