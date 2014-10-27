@@ -4,8 +4,8 @@
 </head>
 <body>
     <h1> {{ recipe.name }}</h1>
-    {{ recipe.type }} </br>
-    {{ recipe.subtype }} </br>
+    {{ recipe.get_type_display }} </br>
+    {{ recipe.get_subtype_display }} </br>
     {{ recipe.default }} </br>
 
     <h3>Malt</h3>

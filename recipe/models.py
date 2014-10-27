@@ -22,7 +22,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES, default='ale')
     subtype = models.CharField(max_length=50, choices=SUBTYPE_CHOICES, default='wheat ale')
-    image = models.ImageField()
+    image = models.ImageField(null=True)
     default = models.BooleanField(default=False)
     creator = models.ForeignKey(User)
 
