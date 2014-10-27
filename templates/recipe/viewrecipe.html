@@ -1,6 +1,6 @@
-{% block style %}
+{% block title %}
 {{ recipe.name }}
-{% endblock style %}
+{% endblock title %}
 
 {% block content %}
     <h1> {{ recipe.name }}</h1>
@@ -31,4 +31,4 @@
             <li>Amount: {{ yeast.amount }}</li>
         </ul>
     {% endfor %}
-{ % endblock content %}
+{% endblock content %}
