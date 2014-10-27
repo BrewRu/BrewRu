@@ -1,11 +1,11 @@
-<html>
-<head>
-    <title>{{ recipe.name }}</title>
-</head>
-<body>
+{% block style %}
+{{ recipe.name }}
+{% endblock style %}
+
+{% block content %}
     <h1> {{ recipe.name }}</h1>
-    {{ recipe.get_type_display }} </br>
-    {{ recipe.get_subtype_display }} </br>
+    {{ recipe.type }} </br>
+    {{ recipe.subtype }} </br>
     {{ recipe.default }} </br>
 
     <h3>Malt</h3>
@@ -31,5 +31,4 @@
             <li>Amount: {{ yeast.amount }}</li>
         </ul>
     {% endfor %}
-</body>
-</html>
+{ % endblock content %}
