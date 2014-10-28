@@ -6,18 +6,88 @@ All recipes
 
 {% block content %}
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h1 class="panel-title">All Recipes</h3>
-			</div>
 			<div class="panel-body">
+				<h1>All Recipes</h1>
 				Choose from all kinds of recipes we have. (Add more recipes for the list)
-			</div>
 
-			<!-- List group -->
-			<ul class="list-group">
-		    {% for recipe in recipes %}
-		        <li class="list-group-item"><a href={% url 'view_recipe' recipe.id %}>{{ recipe.name }}</a></li>
-		    {% endfor %}
-		    </ul>
+				<div class="row" style="padding-top: 15px">
+
+					{% load staticfiles %}
+		    		{% for recipe in recipes %}
+					<div class="col-md-3 col-offset-1">
+						<div class="thumbnail">
+							<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
+							<div class="caption">
+								<h3>{{ recipe.name }}</h3>
+								<p><span class="label label-success">Wheat Ale</p>
+								<p>
+									<a href="{% url 'view_recipe' recipe.id %}" class="btn btn-default" role="button">View</a>
+									<a href="#" class="btn btn-primary" role="button">Brew!</a>
+								</p>
+							</div>
+						</div>
+					</div>
+		    		{% endfor %}
+
+
+		    		<!-- HARD CODED FOR VISUAL CHECK
+		    		ERASE THIS PORTION WHEN THERE ARE ENOUGH RECIPES -->
+					<div class="col-md-3 col-offset-1">
+						<div class="thumbnail">
+							<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
+							<div class="caption">
+								<h3>Hard-coded beer1</h3>
+								<p><span class="label label-warning">Imperial Stout</p>
+								<p>
+									<a href="1" class="btn btn-default" role="button">View</a>
+									<a href="#" class="btn btn-primary" role="button">Brew!</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-offset-1">
+						<div class="thumbnail">
+							<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
+							<div class="caption">
+								<h3>Hard-coded beer2</h3>
+								<p><span class="label label-success">Wheat Ale</p>
+								<p>
+									<a href="1" class="btn btn-default" role="button">View</a>
+									<a href="#" class="btn btn-primary" role="button">Brew!</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-offset-1">
+						<div class="thumbnail">
+							<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
+							<div class="caption">
+								<h3>Hard-coded beer3</h3>
+								<p><span class="label label-danger">India Pale Ale</p>
+								<p>
+									<a href="1" class="btn btn-default" role="button">View</a>
+									<a href="#" class="btn btn-primary" role="button">Brew!</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-offset-1">
+						<div class="thumbnail">
+							<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
+							<div class="caption">
+								<h3>Hard-coded beer4</h3>
+								<p><span class="label label-success">Wheat Ale</p>
+								<p>
+									<a href="1" class="btn btn-default" role="button">View</a>
+									<a href="#" class="btn btn-primary" role="button">Brew!</a>
+								</p>
+							</div>
+						</div>
+					</div>
+		    		<!-- END HARD-CODE VISUAL CHECK -->
+
+
+				</div>
+			</div>
         </div>
 {% endblock content %}
