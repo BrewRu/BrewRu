@@ -16,7 +16,6 @@
 <body>
     <div class="container">
 
-    {% block nav %}
         <!-- Static navbar -->
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
@@ -31,9 +30,11 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li ><a href="/start">Getting Started</a></li>
+    {% block nav %}
+              <li><a href="/start">Getting Started</a></li>
               <li><a href="/recipe">Recipes</a></li>
               <li><a href="/create">Create a recipe</a></li>
+    {% endblock nav %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Log in</a></li>
@@ -42,7 +43,6 @@
           </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
         </div>
-    {% endblock nav %}
 
     {% block content %}
         <div class="jumbotron">
