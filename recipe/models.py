@@ -56,7 +56,12 @@ class Malt(models.Model):
     recipe = models.ForeignKey(Recipe)
     name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
-    pass
+    country = models.CharField(max_length=50)
+    color = models.IntegerField()
+    gravity = models.DecimalField(max_digits=10, decimal_places=3)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
 
 
 class Hops(models.Model):
@@ -64,11 +69,23 @@ class Hops(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
-    pass
+    AAU = models.DecimalField(max_digits=10, decimal_places=1)
+    time = models.IntegerField()
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
 
 class Yeast(models.Model):
     recipe = models.ForeignKey(Recipe)
     manufacturer = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
-    pass
+    temp = models.DecimalField(max_digits=10, decimal_places=2)
+    attenuation = models.DecimalField(max_digits=10, decimal_places=2)
+    tolerance = models.DecimalField(max_digits=10, decimal_places=2)
+    flocculation = models.CharField(max_length=50)
+    pitchrate = models.IntegerField()
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
