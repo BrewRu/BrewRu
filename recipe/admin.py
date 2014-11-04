@@ -3,18 +3,18 @@ from django.contrib import admin
 # Register your models here.
 from recipe.models import Recipe, Malt, Yeast, Hops
 
-
-class MaltInline(admin.TabularInline):
+@admin.register(Malt)
+class Malt(admin.ModelAdmin):
     model = Malt
     extra = 1
 
-
-class HopsInline(admin.TabularInline):
+@admin.register(Hops)
+class Hops(admin.ModelAdmin):
     model = Hops
     extra = 1
 
-
-class YeastInline(admin.TabularInline):
+@admin.register(Yeast)
+class Yeast(admin.ModelAdmin):
     model = Yeast
     extra = 1
 
@@ -25,7 +25,7 @@ class RecipeAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name', 'type', 'subtype', 'default', 'creator']}),
     ]
-    inlines = [MaltInline, HopsInline, YeastInline]
+    
 
     # Fields displayed for the list of items
     list_display = ('name', 'type', 'subtype', 'default', 'OG', 'FG', 'SRM', 'IBU')

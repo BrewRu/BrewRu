@@ -15,7 +15,7 @@ class Recipe(models.Model):
             ('wheat ale', 'Wheat Ale'),
         )),
         ('Lager', (
-            ('generic lager', 'Generic Lager'),  ## Change me
+            ('generic lager', 'Bock'),  ## Change me
         ))
     )
 
@@ -53,7 +53,7 @@ class Recipe(models.Model):
 
 
 class Malt(models.Model):
-    recipe = models.ForeignKey(Recipe)
+    
     name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
     country = models.CharField(max_length=50)
@@ -65,19 +65,18 @@ class Malt(models.Model):
 
 
 class Hops(models.Model):
-    recipe = models.ForeignKey(Recipe)
+    
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    amount = models.DecimalField(max_digits=10, decimal_places=3)
     AAU = models.DecimalField(max_digits=10, decimal_places=1)
-    time = models.IntegerField()
+
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
 
 class Yeast(models.Model):
-    recipe = models.ForeignKey(Recipe)
+    
     manufacturer = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
