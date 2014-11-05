@@ -20,15 +20,15 @@ class Yeast(admin.ModelAdmin):
 	
 class YeastInline(admin.TabularInline):
 	model = YeastIL
- 
+	extra=1
 	
 class HopsInline(admin.TabularInline):
 	model = HopsIL
-   
+	extra=1
 
 class MaltInline(admin.TabularInline):
     model = MaltIL
-  
+    extra=1
 
 
 @admin.register(Recipe)
