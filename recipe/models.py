@@ -22,6 +22,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES, default='ale')
     subtype = models.CharField(max_length=50, choices=SUBTYPE_CHOICES, default='wheat ale')
+    yeast_pitch_rate = models.DecimalField(max_digits=10, decimal_places=3)
     image = models.ImageField(null=True)
     default = models.BooleanField(default=False)
     creator = models.ForeignKey(User)
@@ -55,7 +56,7 @@ class Recipe(models.Model):
 class Malt(models.Model):
     
     name = models.CharField(max_length=50)
-    amount = models.DecimalField(max_digits=10, decimal_places=3)
+   # amount = models.DecimalField(max_digits=10, decimal_places=3)
     country = models.CharField(max_length=50)
     color = models.IntegerField()
     gravity = models.DecimalField(max_digits=10, decimal_places=3)
@@ -79,12 +80,10 @@ class Yeast(models.Model):
     
     manufacturer = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
-    amount = models.DecimalField(max_digits=10, decimal_places=3)
     temp = models.DecimalField(max_digits=10, decimal_places=2)
     attenuation = models.DecimalField(max_digits=10, decimal_places=2)
     tolerance = models.DecimalField(max_digits=10, decimal_places=2)
     flocculation = models.CharField(max_length=50)
-    pitchrate = models.IntegerField()
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name

@@ -22,10 +22,10 @@ class Yeast(admin.ModelAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     # Fields to be displayed in the individual admin page
-    fieldsets = [
-        (None, {'fields': ['name', 'type', 'subtype', 'default', 'creator']}),
-    ]
-    
+  #  fieldsets = [
+   #     (None, {'fields': ['name', 'type', 'subtype', 'default', 'creator']}),
+    #]
+    model=Recipe
 
     # Fields displayed for the list of items
     list_display = ('name', 'type', 'subtype', 'default', 'OG', 'FG', 'SRM', 'IBU')
