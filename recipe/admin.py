@@ -1,31 +1,44 @@
 from django.contrib import admin
 
 # Register your models here.
-from recipe.models import Recipe, Malt, Yeast, Hops
+from recipe.models import Recipe, Malt, Yeast, Hops,MaltIL, YeastIL, HopsIL
 
 @admin.register(Malt)
 class Malt(admin.ModelAdmin):
     model = Malt
-    extra = 1
+
 
 @admin.register(Hops)
 class Hops(admin.ModelAdmin):
     model = Hops
-    extra = 1
+  
 
 @admin.register(Yeast)
 class Yeast(admin.ModelAdmin):
     model = Yeast
-    extra = 1
+   
+	
+class YeastInline(admin.TabularInline):
+	model = YeastIL
+ 
+	
+class HopsInline(admin.TabularInline):
+	model = HopsIL
+   
+
+class MaltInline(admin.TabularInline):
+    model = MaltIL
+  
 
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     # Fields to be displayed in the individual admin page
-  #  fieldsets = [
-   #     (None, {'fields': ['name', 'type', 'subtype', 'default', 'creator']}),
-    #]
-    model=Recipe
+    fieldsets = [
+        (None, {'fields': ['name', 'type', 'subtype', 'default', 'creator']}),
+    ]
+    inlines = [MaltInline, HopsInline, YeastInline]
+    #model=Recipe
 
     # Fields displayed for the list of items
     list_display = ('name', 'type', 'subtype', 'default', 'OG', 'FG', 'SRM', 'IBU')

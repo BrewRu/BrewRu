@@ -87,3 +87,32 @@ class Yeast(models.Model):
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+		
+		
+		
+class YeastIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    pitchrate = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name		
+		
+class MaltIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    amount = models.DecimalField(max_digits=10, decimal_places=3)
+    
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+
+class HopsIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    time = models.IntegerField()
+
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
