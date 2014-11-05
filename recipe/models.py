@@ -12,17 +12,17 @@ class Recipe(models.Model):
 
     SUBTYPE_CHOICES = (
         ('Ale', (
-            ('wheat ale', 'Wheat Ale'),
+            ('pale ale','Pale Ale'),('ipa','IPA'),('amber','Amber'),('brown','Brown'),('wheat ale', 'Wheat Ale'),('stout','Stout'),('belgian','Belgian')
         )),
         ('Lager', (
-            ('generic lager', 'Bock'),  ## Change me
+            ('light lager','Light Lager'),('hybrid lager','Hybrid Lager'),('bock', 'Bock'),  ## Change me
         ))
     )
 
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES, default='ale')
     subtype = models.CharField(max_length=50, choices=SUBTYPE_CHOICES, default='wheat ale')
-    yeast_pitch_rate = models.DecimalField(max_digits=10, decimal_places=3)
+    #yeast_pitch_rate = models.DecimalField(max_digits=10, decimal_places=3)
     image = models.ImageField(null=True)
     default = models.BooleanField(default=False)
     creator = models.ForeignKey(User)
@@ -84,6 +84,37 @@ class Yeast(models.Model):
     attenuation = models.DecimalField(max_digits=10, decimal_places=2)
     tolerance = models.DecimalField(max_digits=10, decimal_places=2)
     flocculation = models.CharField(max_length=50)
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+		
+		
+		
+class YeastIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    pitchrate = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name		
+		
+class MaltIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    amount = models.DecimalField(max_digits=10, decimal_places=3)
+    
+    
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
+
+
+class HopsIL(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    name = models.CharField(max_length=50)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    time = models.IntegerField()
+
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
