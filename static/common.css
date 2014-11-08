@@ -16,3 +16,7 @@ body {
 	color: white;
 	text-shadow: black 0.2em 0.2em 0.2em;
 }
+
+.inline {
+    display: inline;
+}

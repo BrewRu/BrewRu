@@ -21,3 +21,11 @@ def view_all_recipes(request):
                   {
                       'recipes': recipes,
                   })
+
+def brewmaster(request, recipe_id):
+    recipe = get_object_or_404(klass=Recipe, pk=recipe_id)
+    return render(request,
+                  'recipe/brewmaster.html',
+        {
+            'recipe': recipe,
+        })
