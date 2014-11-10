@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="{% static "common.css" %}">
 	<link rel="stylesheet" href="{% static "countdowns/jquery.countdown.css" %}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="{% static "/countdowns/jquery.plugin.js" %}"></script>
-	<script src="{% static "/countdowns/jquery.countdown.js" %}"></script>
+	<script src="{% static "countdowns/jquery.plugin.js" %}"></script>
+	<script src="{% static "countdowns/jquery.countdown.js" %}"></script>
     {% block style %}
     {% endblock style %}
 	<style type="text/css">
-		#defaultCountdown { width: 240px; height: 45px; }
+		#defaultCountdown { width: 240px; height: 45px; color: #000000; }
 	</style>
 	<script>
 		$(function () {$('#defaultCountdown').countdown({until: '+1h +30m', format:'MS'});});
@@ -64,9 +64,6 @@
                 <a class="btn btn-lg btn-success" href="/create" role="button">Create Recipes &raquo;</a>
             </p>
         </div>
-		<p> Dapper </p>
-		<h1>jQuery Countdown Basics</h1>
-		<div id="defaultCountdown"></div>
     {% endblock content %}
 
 	

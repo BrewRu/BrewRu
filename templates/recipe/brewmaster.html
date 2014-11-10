@@ -66,8 +66,7 @@ Brewru Brew Day
 
                         <ul class="list-group">
                             {% for hops in recipe.hopsil_set.all %}
-                            <li class="list-group-item">{{ hops.name }} - {{ hops.amount }} lb   <h2 class="inline"><span id="hops{{forloop.counter}} "class="label label-info">$('#defaultCountdown').countdown({until: '+1h +20m', 
-    format: 'MS'});{{ hops.time }}:00</span></h2></li>
+                            <li class="list-group-item">{{ hops.name }} - {{ hops.amount }} lb   <h3 class="inline"><span id="hops{{forloop.counter}} "class="label label-info"><div id="defaultCountdown"></div>{{ hops.time }}:00</span></h3></li>
                             {% endfor %}
                         </ul>
 
