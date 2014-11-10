@@ -10,7 +10,22 @@ Brewru Brew Day
               <li><a href="/create">Create a recipe</a></li>
 {% endblock nav %}
 
+{% block variables %}
+    <script type="application/javascript"></script>
+{% endblock variables %}
 
+{% block style %}
+	<style type="text/css">
+		#defaultCountdown { width: 240px; height: 45px; color: #000000; }
+	</style>
+{% endblock style %}
+
+{% block scripts %}
+	<script>
+        var times = [{% for hops in recipe.hopsil_set.all %}{% if forloop.last %}{{ hops.time }}{% else  %} {{ hops.time }}, {% endif %}{% endfor %}];
+		$(function () {$('#defaultCountdown').countdown({until: '+1h +30m', format:'MS'});});
+	</script>
+{% endblock scripts %}
 
 {% block content %}
         <div class="panel panel-default">
@@ -64,11 +79,9 @@ Brewru Brew Day
                     <div class="panel-body">
                         <p>As each timer finishes, add hops to boiling water</p>
 
-                        <ul class="list-group">
                             {% for hops in recipe.hopsil_set.all %}
-                                <li class="list-group-item">{{ hops.name }} - {{ hops.amount }} lb   <div id="defaultCountdown"></div></li>
+                                <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown"></div></div>
                             {% endfor %}
-                        </ul>
                         <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
                     </div>
                   </div>

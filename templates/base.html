@@ -16,12 +16,6 @@
 	<script src="{% static "countdowns/jquery.countdown.js" %}"></script>
     {% block style %}
     {% endblock style %}
-	<style type="text/css">
-		#defaultCountdown { width: 240px; height: 45px; color: #000000; }
-	</style>
-	<script>
-		$(function () {$('#defaultCountdown').countdown({until: '+1h +30m', format:'MS'});});
-	</script>
 </head>
 <body>
     <div class="container">
