@@ -6,12 +6,22 @@
 
     <!-- Latest compiled and minified Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+	
     <!-- Common style sheet -->
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static "common.css" %}">
+	<link rel="stylesheet" href="{% static "countdowns/jquery.countdown.css" %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="{% static "/countdowns/jquery.plugin.js" %}"></script>
+	<script src="{% static "/countdowns/jquery.countdown.js" %}"></script>
     {% block style %}
     {% endblock style %}
+	<style type="text/css">
+		#defaultCountdown { width: 240px; height: 45px; }
+	</style>
+	<script>
+		$(function () {$('#defaultCountdown').countdown({until: '+1h +30m', format:'MS'});});
+	</script>
 </head>
 <body>
     <div class="container">
@@ -47,23 +57,27 @@
     {% block content %}
         <div class="jumbotron">
             <h1>BrewRU</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor finibus enim sit amet tempus. Maecenas scelerisque in nisi ut congue. Donec pharetra nec est et vehicula. Integer eu ipsum venenatis, vulputate sem id, rhoncus ante.</p>
+            <p>If you're new to brewing, choose "Getting Started". To Brew a recipe, choose "Recipes". And to create a new recipe, choose "Create a recipe".</p>
             <p>
                 <a class="btn btn-lg btn-danger" href="/start" role="button">Getting Started &raquo;</a>
                 <a class="btn btn-lg btn-info" href="/recipe" role="button">View All Recipes &raquo;</a>
                 <a class="btn btn-lg btn-success" href="/create" role="button">Create Recipes &raquo;</a>
             </p>
         </div>
+		<p> Dapper </p>
+		<h1>jQuery Countdown Basics</h1>
+		<div id="defaultCountdown"></div>
     {% endblock content %}
 
-
+	
     </div> <!-- /container -->
+	
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     {% block scripts %}
-
+	
     {% endblock scripts %}
 </body>
 </html>
