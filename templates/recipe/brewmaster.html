@@ -6,7 +6,7 @@ Brewru Brew Day
 
 {% block nav %}
               <li><a href="/start">Getting Started</a></li>
-              <li class="active"><a href="/recipe">Recipes</a></li>
+              <li><a href="/recipe">Recipes</a></li>
               <li><a href="/create">Create a recipe</a></li>
 {% endblock nav %}
 
@@ -30,7 +30,7 @@ Brewru Brew Day
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
-                        <p>Add 3 gallons of water to the pot, set the pot on the stove and turn it to high.</p>
+                        <p>Add 6 gallons of water to the pot, set the pot on the stove and turn it to high.</p>
                         <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">The water is boiling</button>
                     </div>
                   </div>
@@ -66,11 +66,10 @@ Brewru Brew Day
 
                         <ul class="list-group">
                             {% for hops in recipe.hopsil_set.all %}
-                            <li class="list-group-item">{{ hops.name }} - {{ hops.amount }} lb   <h3 class="inline"><span id="hops{{forloop.counter}} "class="label label-info"><div id="defaultCountdown"></div>{{ hops.time }}:00</span></h3></li>
+                                <li class="list-group-item">{{ hops.name }} - {{ hops.amount }} lb   <div id="defaultCountdown"></div></li>
                             {% endfor %}
                         </ul>
-
-
+                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
                     </div>
                   </div>
                 </div>
@@ -85,7 +84,8 @@ Brewru Brew Day
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                     <div class="panel-body">
-                        Body here
+                        <p>Cool to below 70 degrees Fahrenheit.</p>
+                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFive" aria-controls="collapseFive">Wart is chilled</button>
                     </div>
                   </div>
                 </div>
@@ -100,7 +100,8 @@ Brewru Brew Day
                   </div>
                   <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                     <div class="panel-body">
-                        Body here
+                        <p>Transfer the wart to a sanitized fermenter.</p>
+                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSix" aria-controls="collapseSix">Transferred the wart</button>
                     </div>
                   </div>
                 </div>
@@ -115,7 +116,13 @@ Brewru Brew Day
                   </div>
                   <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                     <div class="panel-body">
-                        Body here
+                        <p>Add the following yeasts to the mix:</p>
+                        <ul class="list-group">
+                            {% for yeast in recipe.yeastil_set.all %}
+                                <li class="list-group-item">{{ yeast.name }} - {{ yeast.pitchrate }} billion cells  </li>
+                            {% endfor %}
+                        </ul>
+                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSeven" aria-controls="collapseSeven">Yeast added</button>
                     </div>
                   </div>
                 </div>
@@ -130,7 +137,7 @@ Brewru Brew Day
                   </div>
                   <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
                     <div class="panel-body">
-                        Body here
+                        <p>Now you're all done! Let the mix ferment in a cool, dark place for two weeks, then bottle. </p>
                     </div>
                   </div>
                 </div>
