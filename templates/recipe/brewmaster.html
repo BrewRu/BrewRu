@@ -23,7 +23,9 @@ Brewru Brew Day
 {% block scripts %}
 	<script>
         var times = [{% for hops in recipe.hopsil_set.all %}{% if forloop.last %}{{ hops.time }}{% else  %} {{ hops.time }}, {% endif %}{% endfor %}];
-		$(function () {$('#defaultCountdown').countdown({until: '+1h +30m', format:'MS'});});
+		{% for hops in recipe.hopsil_set.all %}
+			$(function () {$('#defaultCountdown{{forloop.counter}}').countdown({until: '+{{hops.time}}m', format:'MS'});});
+		{% endfor %}
 	</script>
 {% endblock scripts %}
 
@@ -80,7 +82,7 @@ Brewru Brew Day
                         <p>As each timer finishes, add hops to boiling water</p>
 
                             {% for hops in recipe.hopsil_set.all %}
-                                <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown"></div></div>
+                                <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown{{forloop.counter}}"></div></div>
                             {% endfor %}
                         <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
                     </div>

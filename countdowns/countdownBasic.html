@@ -10,10 +10,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="jquery.plugin.js"></script>
 <script src="jquery.countdown.js"></script>
-<script>$(function () {$('#defaultCountdowna').countdown({until: '+1h +30m', format:'MS'})});</script>
+<script>$(function () { var x = $('#defaultCountdowna').data('30'); $('#defaultCountdowna').countdown({until: '+'+x'm', format:'MS'})});</script>
 </head>
 <body>
 <h1>jQuery Countdown Basics</h1>
-<div id="defaultCountdowna"></div>
+<div id="defaultCountdowna" data-param1="30"></div>
 </body>
 </html>
