@@ -15,9 +15,11 @@
             <div class="panel-body">
 
                 <h1> {{ recipe.name }}</h1>
-                <span class="label label-success">{{ recipe.type }}</span>
-                <span class="label label-primary">{{ recipe.subtype }}</span>
-                <span class="label label-warning">{{ recipe.default }}</span>
+                <span class="label label-success">{{ recipe.get_type_display }}</span>
+                <span class="label label-primary">{{ recipe.get_subtype_display }}</span>
+                {% if recipe.default %}
+                    <span class="label label-error">Default Recipe</span>
+                {% endif %}
 
                 <div class="row" style="padding-top: 15px">
                     <div class="col-md-4">
