@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Brewru Brew Day
+{% endblock title %}
+	
+
+{% block nav %}
+			  <li class="active"><a href="/start">Getting Started</a></li>
+              <li><a href="/recipe">Recipes</a></li>
+              <li><a href="/create">Create a Recipe</a></li>
+{% endblock nav %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-8 column">
+			<h1>Tutorials</h1>
+			<h3>
+				Tutorial 1
+			</h3>
+			<iframe width="420" height="345" src="http://www.youtube.com/embed/XGSy3_Czz8k"> </iframe>
+			<h3>
+				Tutorial 2
+			</h3>
+			<iframe width="420" height="345" src="http://www.youtube.com/embed/XGSy3_Czz8k"> </iframe>
+			<h3>
+				Tutorial 3
+			</h3>
+			<iframe width="420" height="345" src="http://www.youtube.com/embed/XGSy3_Czz8k"> </iframe>
+			
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				Suggested Readings
+			</h2>
+			<ul>
+				<li>
+					Lorem ipsum dolor sit amet
+				</li>
+				<li>
+					Consectetur adipiscing elit
+				</li>
+				<li>
+					Integer molestie lorem at massa
+				</li>
+				<li>
+					Facilisis in pretium nisl aliquet
+				</li>
+				<li>
+					Nulla volutpat aliquam velit
+				</li>
+				<li>
+					Faucibus porta lacus fringilla vel
+				</li>
+				<li>
+					Aenean sit amet erat nunc
+				</li>
+				<li>
+					Eget porttitor lorem
+				</li>
+			</ul> 
+			<a href="{% url 'equipment' %}" class="btn btn-warning" role="button">Equipment List</a>
+			<a href="https://byo.com/resources/glossary" class="btn btn-warning" role="button">View Glossary</a>
+		</div>
+	</div>
+</div>
+{% endblock content %}
