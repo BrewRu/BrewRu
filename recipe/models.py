@@ -92,7 +92,7 @@ class Yeast(models.Model):
 		
 class YeastIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.ForeignKey(Yeast)
+    name = models.CharField(max_length=50)
     pitchrate = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):              # __unicode__ on Python 2
@@ -100,7 +100,7 @@ class YeastIL(models.Model):
 		
 class MaltIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.ForeignKey(Malt)
+    name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
     
     
@@ -111,7 +111,7 @@ class MaltIL(models.Model):
 
 class HopsIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.ForeignKey(Hops)
+    name = models.CharField(max_length=50)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     time = models.IntegerField()
 
