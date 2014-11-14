@@ -24,7 +24,8 @@ All recipes
 				<img src="../static/bottle-silhouette.png" alt="..." width="242ox" height="200px">
 				<div class="caption">
 					<h4>{{ recipe.name }}</h4>
-					<p><span class="label label-success">{{ recipe.get_subtype_display }}</p>
+					<p><span class="label label-warning">{{ recipe.get_type_display }}</span>
+					<span class="label label-danger">{{ recipe.get_subtype_display }}</p>
 					<p>
 						<a href="{% url 'view_recipe' recipe.id %}" class="btn btn-default" role="button">View</a>
 						<a href="{% url 'brewmaster' recipe.id %}" class="btn btn-primary" role="button">Brew!</a>
