@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Brewru Brew Day
+{% endblock title %}
+	
+
+{% block nav %}
+			  <li class="active"><a href="/start">Getting Started</a></li>
+              <li><a href="/recipe">Recipes</a></li>
+              <li><a href="/create">Create a Recipe</a></li>
+{% endblock nav %}
+
+{% block content %}
+<div class="jumbotron well">
+		<h2>Getting Started</h2>
+</div>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-8 column">
+			<h1>Tutorials</h1>
+			<h3>
+				Tutorial 1
+			</h3>
+			<iframe width="560" height="315" src="//www.youtube.com/embed/qCW-SVPCw4Y" frameborder="0" allowfullscreen></iframe>
+			<h3>
+				Tutorial 2
+			</h3>
+			<iframe width="560" height="315" src="//www.youtube.com/embed/K9Yuoj7f0xA" frameborder="0" allowfullscreen></iframe>
+			<h3>
+				Tutorial 3
+			</h3>
+			<iframe width="560" height="315" src="//www.youtube.com/embed/B6LguX-34Vo" frameborder="0" allowfullscreen></iframe>
+			
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				Suggested Readings
+			</h2>
+			<ul>
+				<li>
+					How to Brew: John Palmer
+				</li>
+				<li>
+					The Joy of HomeBrewing: Charlie Papazian
+				</li>
+				<li>
+					Extreme HomeBrewing: Sam Calagione
+				</li>
+				<li>
+					Wild Brews: Peter Bouckart
+				</li>
+			
+			</ul> 
+			<a href="http://www.homebrewersassociation.org/how-to-brew/beginner/homebrew-equipment" class="btn btn-warning" role="button">Equipment List</a>
+			<a href="https://byo.com/resources/glossary" class="btn btn-warning" role="button">View Glossary</a>
+		</div>
+	</div>
+</div>
+{% endblock content %}

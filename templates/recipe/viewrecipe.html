@@ -7,59 +7,59 @@
 {% block nav %}
               <li><a href="/start">Getting Started</a></li>
               <li class="active"><a href="/recipe">Recipes</a></li>
-              <li><a href="/create">Create a recipe</a></li>
+              <li><a href="/create">Create a Recipe</a></li>
 {% endblock nav %}
 
 {% block content %}
-        <div class="panel panel-default">
-            <div class="panel-body">
+    <div class="jumbotron well">
+        <h2>{{ recipe.name }}</h2>
+        <span class="label label-success">{{ recipe.get_type_display }}</span>
+        <span class="label label-primary">{{ recipe.get_subtype_display }}</span>
+        {% if recipe.default %}
+        <span class="label label-error">Default Recipe</span>
+        {% endif %}
 
-                <h1> {{ recipe.name }}</h1>
-                <span class="label label-success">{{ recipe.type }}</span>
-                <span class="label label-primary">{{ recipe.subtype }}</span>
-                <span class="label label-warning">{{ recipe.default }}</span>
+        <a href="{% url 'brewmaster' recipe.id %}" class="btn btn-small btn-warning" role="button">Brew it now!</a>
+    </div>
 
-                <div class="row" style="padding-top: 15px">
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item active">Malt</li>
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item">Malt</li>
 
-                            {% for malt in recipe.malt_set.all %}
-                            <li class="list-group-item">
-                                <span class="badge">{{ malt.amount }}</span>
-                                {{ malt.name }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item active">Hop</li>
-
-                            {% for hop in recipe.hops_set.all %}
-                            <li class="list-group-item">
-                                <span class="badge">{{ hop.amount }}</span>
-                                {{ hop.name }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-
-                    <div class="col-md-4">
-                        <ul class="list-group">
-                            <li class="list-group-item active">Yeast</li>
-
-                            {% for yeast in recipe.yeast_set.all %}
-                            <li class="list-group-item">
-                                <span class="badge">{{ yeast.amount }}</span>
-                                {{ yeast.name }}
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+                {% for malt in recipe.Malt_set.all %}
+                <li class="list-group-item">
+                    <span class="badge">{{ malt.aau }}</span>
+                    {{ malt.name }}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
+
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item">Hop</li>
+
+                {% for hop in recipe.hops_set.all %}
+                <li class="list-group-item">
+                    <span class="badge">{{ hop.amount }}</span>
+                    {{ hop.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item">Yeast</li>
+
+                {% for yeast in recipe.yeast_set.all %}
+                <li class="list-group-item">
+                    <span class="badge">{{ yeast.amount }}</span>
+                    {{ yeast.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock content %}

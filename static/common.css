@@ -20,3 +20,7 @@ body {
 .inline {
     display: inline;
 }
+
+.float-right {
+    float: right;
+}

@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
 import recipe
+import create
+import start
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,4 +15,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^recipe/', include('recipe.urls')),
+    url(r'^create/', include('create.urls')),
+    url(r'^start/', include('start.urls')),
 )
