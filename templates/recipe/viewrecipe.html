@@ -21,6 +21,8 @@
                     <span class="label label-error">Default Recipe</span>
                 {% endif %}
 
+                <a href="{% url 'brewmaster' recipe.id %}" class="btn btn-warning" role="button">Brew it now!</a>
+
                 <div class="row" style="padding-top: 15px">
                     <div class="col-md-4">
                         <ul class="list-group">
@@ -61,7 +63,7 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
+
         </div>
 {% endblock content %}
