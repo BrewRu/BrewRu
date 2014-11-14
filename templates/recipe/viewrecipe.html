@@ -11,10 +11,12 @@
 {% endblock nav %}
 
 {% block content %}
+<div class="jumbotron well">
+		<h2>{{ recipe.name }}</h2>
+	</div>
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <h1> {{ recipe.name }}</h1>
                 <span class="label label-success">{{ recipe.get_type_display }}</span>
                 <span class="label label-primary">{{ recipe.get_subtype_display }}</span>
                 {% if recipe.default %}
