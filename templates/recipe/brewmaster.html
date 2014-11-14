@@ -15,153 +15,149 @@ Brewru Brew Day
 {% endblock variables %}
 
 {% block style %}
-	<style type="text/css">
-		#defaultCountdown { width: 240px; height: 45px; color: #000000; }
-	</style>
+  <style type="text/css">
+    #defaultCountdown { width: 240px; height: 45px; color: #000000; }
+  </style>
 {% endblock style %}
 
 {% block scripts %}
-	<script>
-        var times = [{% for hops in recipe.hopsil_set.all %}{% if forloop.last %}{{ hops.time }}{% else  %} {{ hops.time }}, {% endif %}{% endfor %}];
-		{% for hops in recipe.hopsil_set.all %}
-			$(function () {$('#defaultCountdown{{forloop.counter}}').countdown({until: '+{{hops.time}}m', format:'MS'});});
-		{% endfor %}
-	</script>
+{% load staticfiles %}
+    <script src="{% static "countdowns/jquery.plugin.js" %}"></script>
+    <script src="{% static "countdowns/jquery.countdown.js" %}"></script>
+    <script>
+      var times = [{% for hops in recipe.hopsil_set.all %}{% if forloop.last %}{{ hops.time }}{% else  %} {{ hops.time }}, {% endif %}{% endfor %}];
+      {% for hops in recipe.hopsil_set.all %}
+        $(function () {$('#defaultCountdown{{forloop.counter}}').countdown({until: '+{{hops.time}}m', format:'MS'});});
+      {% endfor %}
+    </script>
 {% endblock scripts %}
 
 {% block content %}
-		<div class="jumbotron well">
-		<h2>Brewru Brew Day </h2>
-		</div>
-        <div class="panel panel-default">
-            <div class="panel-body">
-
-              <h3 class="block">{{ recipe.name }}</h3><hr>
-
-              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Step One - Boil Water
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                        <p>Add 6 gallons of water to the pot, set the pot on the stove and turn it to high.</p>
-                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">The water is boiling</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Step Two - Add Extract
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-                      <p>Dump all extract into the kettle of water</p>
-                      <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseThree" aria-controls="collapseThree">The water is boiling again</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Step Three - Add Hops
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body">
-                        <p>As each timer finishes, add hops to boiling water</p>
-
-                            {% for hops in recipe.hopsil_set.all %}
-                                <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown{{forloop.counter}}"></div></div>
-                            {% endfor %}
-                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingFour">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Step Four - Chill Wart
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                    <div class="panel-body">
-                        <p>Cool to below 70 degrees Fahrenheit.</p>
-                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFive" aria-controls="collapseFive">Wart is chilled</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingFive">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Step Five - Rack to Fermenter
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="panel-body">
-                        <p>Transfer the wart to a sanitized fermenter.</p>
-                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSix" aria-controls="collapseSix">Transferred the wart</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingSix">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Step Six - Add Yeast
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                    <div class="panel-body">
-                        <p>Add the following yeasts to the mix:</p>
-                        <ul class="list-group">
-                            {% for yeast in recipe.yeastil_set.all %}
-                                <li class="list-group-item">{{ yeast.name }} - {{ yeast.pitchrate }} billion cells  </li>
-                            {% endfor %}
-                        </ul>
-                        <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSeven" aria-controls="collapseSeven">Yeast added</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel panel-default">
-                  <div class="panel-heading" role="tab" id="headingSeven">
-                    <h4 class="panel-title">
-                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                        Step Seven - Fermentation
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-                    <div class="panel-body">
-                        <p>Now you're all done! Let the mix ferment in a cool, dark place for two weeks, then bottle. </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
+        <div class="jumbotron well">
+          <h2>Brewru Brew Day - {{ recipe.name }}</h2>
         </div>
+
+        <div class="panel-group" style="margin-top: 10px" id="accordion" role="tablist" aria-multiselectable="true">
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Step One - Boil Water
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                  <p>Add 6 gallons of water to the pot, set the pot on the stove and turn it to high.</p>
+                  <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseTwo" aria-controls="collapseTwo">The water is boiling</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Step Two - Add Extract
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                <p>Dump all extract into the kettle of water</p>
+                <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseThree" aria-controls="collapseThree">The water is boiling again</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Step Three - Add Hops
+                </a>
+              </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                  <p>As each timer finishes, add hops to boiling water</p>
+
+                      {% for hops in recipe.hopsil_set.all %}
+                          <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown{{forloop.counter}}"></div></div>
+                      {% endfor %}
+                  <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Step Four - Chill Wart
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+              <div class="panel-body">
+                  <p>Cool to below 70 degrees Fahrenheit.</p>
+                  <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFive" aria-controls="collapseFive">Wart is chilled</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFive">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Step Five - Rack to Fermenter
+                </a>
+              </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+              <div class="panel-body">
+                  <p>Transfer the wart to a sanitized fermenter.</p>
+                  <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSix" aria-controls="collapseSix">Transferred the wart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSix">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Step Six - Add Yeast
+                </a>
+              </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+              <div class="panel-body">
+                  <p>Add the following yeasts to the mix:</p>
+                  <ul class="list-group">
+                      {% for yeast in recipe.yeastil_set.all %}
+                          <li class="list-group-item">{{ yeast.name }} - {{ yeast.pitchrate }} billion cells  </li>
+                      {% endfor %}
+                  </ul>
+                  <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseSeven" aria-controls="collapseSeven">Yeast added</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingSeven">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  Step Seven - Fermentation
+                </a>
+              </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+              <div class="panel-body">
+                  <p>Now you're all done! Let the mix ferment in a cool, dark place for two weeks, then bottle. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
 {% endblock content %}

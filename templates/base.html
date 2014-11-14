@@ -6,14 +6,12 @@
 
     <!-- Latest compiled and minified Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	
+  
     <!-- Common style sheet -->
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static "common.css" %}">
-	<link rel="stylesheet" href="{% static "countdowns/jquery.countdown.css" %}">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="{% static "countdowns/jquery.plugin.js" %}"></script>
-	<script src="{% static "countdowns/jquery.countdown.js" %}"></script>
+    <link rel="stylesheet" href="{% static "countdowns/jquery.countdown.css" %}">
+
     {% block style %}
     {% endblock style %}
 </head>
@@ -60,15 +58,15 @@
         </div>
     {% endblock content %}
 
-	
+  
     </div> <!-- /container -->
-	
+  
 
     <!-- Latest compiled and minified JavaScript -->
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     {% block scripts %}
-	
+  
     {% endblock scripts %}
 </body>
 </html>
