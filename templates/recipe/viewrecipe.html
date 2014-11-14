@@ -25,8 +25,11 @@
     <div class="row" style="margin-top: 15px">
         <div class="col-md-4">
             <ul class="list-group">
-                <li class="list-group-item">Malt</li>
-
+                <li class="list-group-item active">Malt</li>
+                <li class="list-group-item">
+                    <span class="badge">5</span>
+                    Black Patent
+                </li>
                 {% for malt in recipe.Malt_set.all %}
                 <li class="list-group-item">
                     <span class="badge">{{ malt.aau }}</span>
@@ -38,7 +41,15 @@
 
         <div class="col-md-4">
             <ul class="list-group">
-                <li class="list-group-item">Hop</li>
+                <li class="list-group-item active">Hop</li>
+                <li class="list-group-item">
+                    <span class="badge">1 lbs</span>
+                    Hallertau 
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">0.25 lbs</span>
+                    Hallertau 
+                </li>
 
                 {% for hop in recipe.hops_set.all %}
                 <li class="list-group-item">
@@ -51,8 +62,11 @@
 
         <div class="col-md-4">
             <ul class="list-group">
-                <li class="list-group-item">Yeast</li>
-
+                <li class="list-group-item active">Yeast</li>
+                <li class="list-group-item">
+                    <span class="badge">1 billion</span>
+                    WLP 530
+                </li>
                 {% for yeast in recipe.yeast_set.all %}
                 <li class="list-group-item">
                     <span class="badge">{{ yeast.amount }}</span>
