@@ -84,7 +84,7 @@ Brewru Brew Day
                   <p>As each timer finishes, add hops to boiling water</p>
 
                       {% for hops in recipe.hopsil_set.all %}
-                          <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} lb</div>   <div class="col-md-4" id="defaultCountdown{{forloop.counter}}"></div></div>
+                          <div class="list-group-item row"><div class="col-md-8">{{ hops.name }} - {{ hops.amount }} oz</div>   <div class="col-md-4" id="defaultCountdown{{forloop.counter}}"></div></div>
                       {% endfor %}
                   <button class="btn btn-success" role="button" data-parent="#accordion" data-toggle="collapse" data-target="#collapseFour" aria-controls="collapseFour">Timer is all finished!</button>
               </div>
