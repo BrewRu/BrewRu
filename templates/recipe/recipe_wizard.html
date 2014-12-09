@@ -6,9 +6,19 @@
 {% endblock %}
 
 {% block content %}
-<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+
+<div class="jumbotron well">
+	<h2>Create Recipe</h2>
+</div>
+<hr>
+
+<div class="panel panel-default">
+		<div class="panel-body">
+<h3>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h3><hr>
+
 <form action="" method="post">{% csrf_token %}
-<table>
+
+<table class="table table-bordered">
 {{ wizard.management_form }}
 {% if wizard.form.forms %}
     {{ wizard.form.management_form }}
@@ -19,10 +29,13 @@
     {{ wizard.form }}
 {% endif %}
 </table>
+
 {% if wizard.steps.prev %}
-<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% trans "first step" %}</button>
-<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "prev step" %}</button>
+<button name="wizard_goto_step" class="btn btn-default" type="submit" value="{{ wizard.steps.prev }}">{% trans "Back" %}</button>
 {% endif %}
-<input type="submit" value="{% trans "submit" %}"/>
+<input type="submit" class="btn btn-default" value="{% trans "Next" %}"/>
+
 </form>
+</div>
+</div>
 {% endblock %}
