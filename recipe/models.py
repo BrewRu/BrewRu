@@ -25,7 +25,7 @@ class Recipe(models.Model):
     #yeast_pitch_rate = models.DecimalField(max_digits=10, decimal_places=3)
     image = models.ImageField(null=True)
     default = models.BooleanField(default=False)
-    creator = models.ForeignKey(User)
+    creator = models.ForeignKey(User, null=True)
 
     ## Many to ones
     # Malt
@@ -92,29 +92,29 @@ class Yeast(models.Model):
 		
 class YeastIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.CharField(max_length=50)
+    name = models.ForeignKey(Yeast)
     pitchrate = models.DecimalField(max_digits=10, decimal_places=2)
     
     def __str__(self):              # __unicode__ on Python 2
-        return self.name		
+        return self.name.name
 		
 class MaltIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.CharField(max_length=50)
+    name = models.ForeignKey(Malt)
     amount = models.DecimalField(max_digits=10, decimal_places=3)
     
     
 
     def __str__(self):              # __unicode__ on Python 2
-        return self.name
+        return self.name.name
 
 
 class HopsIL(models.Model):
     recipe = models.ForeignKey(Recipe)
-    name = models.CharField(max_length=50)
+    name = models.ForeignKey(Hops)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     time = models.IntegerField()
 
 
     def __str__(self):              # __unicode__ on Python 2
-        return self.name
+        return self.name.name
