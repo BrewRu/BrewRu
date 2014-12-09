@@ -22,170 +22,220 @@ Create Recipes
 	<div class="jumbotron well">
 		<h2>Create Recipe</h2>
 	</div>
- <div class="panel panel-default">
+	<hr>
+<div class="panel panel-default">
 		<div class="panel-body">
-	<div class="span12">					
-		<div class="tabbable">
-		  <ul class="nav nav-pills  ">
-			<li class="active"><a href="#tabs5-pane1" data-toggle="tab">Step 1</a></li>
-			<li class=""><a href="#tabs5-pane2" data-toggle="tab">Step 2</a></li>
-			<li class=""><a href="#tabs5-pane3" data-toggle="tab">Step 3</a></li>
-			<li class=""><a href="#tabs5-pane4" data-toggle="tab">Step 4</a></li>
-			<li class=""><a href="#tabs5-pane5" data-toggle="tab">Step 5 </a></li>
-			<li class=""><a href="#tabs5-pane6" data-toggle="tab">Step 6</a></li>
-			<li class=""><a href="#tabs5-pane7" data-toggle="tab">Step 7</a></li>
-		  </ul>
-		  <div class="tab-content ">
-			<div id="tabs5-pane1" class="tab-pane active">
-			  <h4>Create a New Recipe</h4>
-				  <div class="container">
-					<form class="" style="">
-						<label class="label-warning">NAME BEER</label>
-						<input type="text" name="name" class="">
-						<br class=""><br class="">
-						<label class="label-warning">BEER TYPE</label>
-						<button class="btn btn-default" onclick="select">Ale</button>
-						<button class="btn btn-default" onclick="select">Lager</button>
-						<br class=""><br class="">
-						<label class="label-warning">UNIT OF MEASURE</label>
-						<button class="btn btn-default" onclick="active">U.S.</button>
-						<button class="btn btn-default" onclick="active">Metric</button>
-					</form>
-				</div>
-			</div>
-			<div id="tabs5-pane2" class="tab-pane">
-			<h4>Choose Style</h4>
-			  <div class="container">
-					<div class="row">
-					<label class="label-warning">STYLE</label>
-					<select class="">
-					  <option class="">Select</option>
-					  <option class="">One</option>
-					  <option class="">Two</option>
-					  <option class="">Three</option>
-					  </select>
-				    <br> <br>
-					<label class="label-warning">SUBSTYLE</label>
-					<select class="">
-					  <option class="">Select</option>
-					  <option class="">One</option>
-					  <option class="">Two</option>
-					  <option class="">Three</option>
-					  </select>
-					</div>
-				</div>
-			</div>
-			<div id="tabs5-pane3" class="tab-pane">
-			  <h4>Malt</h4>
-			    <div class="container">
-					<form class="" style="">
-					  <label class="label-warning">TYPE</label>
-					  <input type="text" name="name" class="">
-					  <br class=""><br class="">
-					  <label class="label-warning">AMOUNT</label>
-					  <input type="text" name="name" class=""> lbs
-					  <br class=""><br class="">
-					  <a href="#" class="btn" type="button">+ Add another Malt</a>
-					</form>
-				</div>
-                   
-			</div>
-			<div id="tabs5-pane4" class="tab-pane">
-			  <h4>Yeast</h4>
-			  <div class="container">
-					<form class="" style="">
-					  <label class="label-warning">TYPE</label>
-					  <input type="text" name="name" class="">
-					  <br class=""><br class="">
-					  <label class="label-warning">AMOUNT</label>
-					  <input type="text" name="name" class=""> billion cells
-					  <br class=""><br class="">
-					</form>
-				</div>
-			</div>
-			<div id="tabs5-pane5" class="tab-pane">
-			  <h4>Hops</h4>
-			  <div class="container">
-					<form class="" style="">
-					  <label class="label-warning">TYPE</label>
-					  <input type="text" name="name" class="">
-					  <label class="label-warning">AA</label>
-					  <input type="text" name="name" class="">
-					  <br class=""><br class="">
-					  <label class="label-warning">AMOUNT</label>
-					  <input type="text" name="name" class=""> Ounces
-					  <br class=""><br class="">
-					  <label class="label-warning">TIME</label>
-					  <input type="text" name="name" class=""> Minutes
-					</form>
-				</div>
-			</div>
-			<div id="tabs5-pane6" class="tab-pane">
-			  <h4>Water Temperature</h4>
-			  <div class="container">
-					<form class="" style="">
-					  <label class="label-warning">Degrees</label>
-					  <input type="text" name="name" class=""> Fahrenheit
-					  <br class=""><br class="">
-					  <label class="label-warning">STEEP TIME (*optional)</label>
-					  <input type="text" name="name" class=""> Minutes
-					  <br class=""><br class="">
-					</form>
-					<p>*Use only if you plan on steeping grains in water before boiling.</p>
-					
-				</div>
-			</div>
-			<div id="tabs5-pane7" class="tab-pane">
-			  <h4>Finished Recipe</h4>
-			  <div class="container">
-					<div class="row clearfix">
-						<div class="col-md-12 column">
-							<div class="row clearfix">
-								<div class="col-md-8 column">
-									<ol>
-										<li>
-											Name
-										</li>
-										<li>
-											Type
-										</li>
-										<li>
-											Style
-										</li>
-										<li>
-											Substyle
-										</li>
-										<li>
-											Ferment
-										</li>
-										<li>
-											Malt
-										</li>
-										<li>
-											Yeast
-										</li>
-										<li>
-											Hops
-										</li>
-										<li>
-											Temp
-										</li>
-									</ol>
+			<div class="span12">
+				<div class="tabbable">
+					<ul class="nav nav-pills">
+					<li class="active"><a href="#tabs5-pane1" data-toggle="tab">Step 1</a></li>
+					<li class=""><a href="#tabs5-pane2" data-toggle="tab">Step 2</a></li>
+					<li class=""><a href="#tabs5-pane3" data-toggle="tab">Step 3</a></li>
+					<li class=""><a href="#tabs5-pane4" data-toggle="tab">Step 4</a></li>
+					<li class=""><a href="#tabs5-pane5" data-toggle="tab">Step 5</a></li>
+					<li class=""><a href="#tabs5-pane6" data-toggle="tab">Step 6</a></li>
+					<li class=""><a href="#tabs5-pane7" data-toggle="tab">Step 7</a></li>
+					</ul>
+
+					<div class="tab-content ">
+						<div id="tabs5-pane1" class="tab-pane active">
+							<h3>Basic information</h3>
+							<hr>
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Name beer</label>
+									<div class="col-sm-5">
+									  <input type="text" class="form-control" id="name" placeholder="Awesome Beer">
+									</div>
 								</div>
-								<div class="col-md-4 column">
-									<a href="" class="btn btn-warning" role="button">Save Recipe</a>
-									 <br><br>
-									 <a href="" class="btn btn-warning" role="button">Save and Open Recipe</a>
-									
+
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Beer type</label>
+									<div class="col-sm-5">
+
+										<div class="btn-group" data-toggle="buttons">
+										  <label class="btn btn-default">
+										    <input type="radio" name="type" id="option1" autocomplete="off"> Ale
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="type" id="option2" autocomplete="off"> Lager
+										  </label>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Units</label>
+									<div class="col-sm-5">
+
+										<div class="btn-group" data-toggle="buttons">
+										  <label class="btn btn-default">
+										    <input type="radio" name="options" id="option1" autocomplete="off"> U.S.
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="options" id="option2" autocomplete="off"> Metric
+										  </label>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div id="tabs5-pane2" class="tab-pane">
+							<h3>Choose a style</h3>
+							<hr>
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Style</label>
+									<div class="col-sm-5">
+										<div class="btn-group" data-toggle="buttons">
+										  <label class="btn btn-default">
+										    <input type="radio" name="style" id="option1" autocomplete="off"> One
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="style" id="option2" autocomplete="off"> Two
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="style" id="option3" autocomplete="off"> Three
+										  </label>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Substyle</label>
+									<div class="col-sm-5">
+										<div class="btn-group" data-toggle="buttons">
+										  <label class="btn btn-default">
+										    <input type="radio" name="substyle" id="option1" autocomplete="off"> One
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="substyle" id="option2" autocomplete="off"> Two
+										  </label>
+										  <label class="btn btn-default">
+										    <input type="radio" name="substyle" id="option3" autocomplete="off"> Three
+										  </label>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div id="tabs5-pane3" class="tab-pane">
+						  <h4>Malt</h4>
+						    <div class="container">
+								<form class="" style="">
+								  <label class="label-warning">TYPE</label>
+								  <input type="text" name="name" class="">
+								  <br class=""><br class="">
+								  <label class="label-warning">AMOUNT</label>
+								  <input type="text" name="name" class=""> lbs
+								  <br class=""><br class="">
+								  <a href="#" class="btn" type="button">+ Add another Malt</a>
+								</form>
+							</div>       
+						</div>
+
+						<div id="tabs5-pane4" class="tab-pane">
+						  <h4>Yeast</h4>
+						  <div class="container">
+								<form class="" style="">
+								  <label class="label-warning">TYPE</label>
+								  <input type="text" name="name" class="">
+								  <br class=""><br class="">
+								  <label class="label-warning">AMOUNT</label>
+								  <input type="text" name="name" class=""> billion cells
+								  <br class=""><br class="">
+								</form>
+							</div>
+						</div>
+
+						<div id="tabs5-pane5" class="tab-pane">
+						  <h4>Hops</h4>
+						  <div class="container">
+								<form class="" style="">
+								  <label class="label-warning">TYPE</label>
+								  <input type="text" name="name" class="">
+								  <label class="label-warning">AA</label>
+								  <input type="text" name="name" class="">
+								  <br class=""><br class="">
+								  <label class="label-warning">AMOUNT</label>
+								  <input type="text" name="name" class=""> Ounces
+								  <br class=""><br class="">
+								  <label class="label-warning">TIME</label>
+								  <input type="text" name="name" class=""> Minutes
+								</form>
+							</div>
+						</div>
+
+						<div id="tabs5-pane6" class="tab-pane">
+						  <h4>Water Temperature</h4>
+						  <div class="container">
+								<form class="" style="">
+								  <label class="label-warning">Degrees</label>
+								  <input type="text" name="name" class=""> Fahrenheit
+								  <br class=""><br class="">
+								  <label class="label-warning">STEEP TIME (*optional)</label>
+								  <input type="text" name="name" class=""> Minutes
+								  <br class=""><br class="">
+								</form>
+								<p>*Use only if you plan on steeping grains in water before boiling.</p>
+								
+							</div>
+						</div>
+
+						<div id="tabs5-pane7" class="tab-pane">
+							<h4>Finished Recipe</h4>
+							<div class="container">
+								<div class="row clearfix">
+									<div class="col-md-12 column">
+										<div class="row clearfix">
+											<div class="col-md-8 column">
+												<ol>
+													<li>
+														Name
+													</li>
+													<li>
+														Type
+													</li>
+													<li>
+														Style
+													</li>
+													<li>
+														Substyle
+													</li>
+													<li>
+														Ferment
+													</li>
+													<li>
+														Malt
+													</li>
+													<li>
+														Yeast
+													</li>
+													<li>
+														Hops
+													</li>
+													<li>
+														Temp
+													</li>
+												</ol>
+											</div>
+											<div class="col-md-4 column">
+												<a href="" class="btn btn-warning" role="button">Save Recipe</a>
+												 <br><br>
+												 <a href="" class="btn btn-warning" role="button">Save and Open Recipe</a>
+												
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
+					</div><!-- /.tab-content -->
+				</div><!-- /.tabbable -->
 			</div>
-		  </div><!-- /.tab-content -->
-		</div><!-- /.tabbable -->
-	</div>
+		</div>
 </div>
 	
 {% endblock content %}

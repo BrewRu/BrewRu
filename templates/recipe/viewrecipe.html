@@ -26,13 +26,9 @@
         <div class="col-md-4">
             <ul class="list-group">
                 <li class="list-group-item active">Malt</li>
+                {% for malt in recipe.maltil_set.all %}
                 <li class="list-group-item">
-                    <span class="badge">5</span>
-                    Black Patent
-                </li>
-                {% for malt in recipe.Malt_set.all %}
-                <li class="list-group-item">
-                    <span class="badge">{{ malt.aau }}</span>
+                    <span class="badge">{{ malt.amount }}</span>
                     {{ malt.name }}
                 </li>
                 {% endfor %}
@@ -42,16 +38,7 @@
         <div class="col-md-4">
             <ul class="list-group">
                 <li class="list-group-item active">Hop</li>
-                <li class="list-group-item">
-                    <span class="badge">1 lbs</span>
-                    Hallertau 
-                </li>
-                <li class="list-group-item">
-                    <span class="badge">0.25 lbs</span>
-                    Hallertau 
-                </li>
-
-                {% for hop in recipe.hops_set.all %}
+                {% for hop in recipe.hopsil_set.all %}
                 <li class="list-group-item">
                     <span class="badge">{{ hop.amount }}</span>
                     {{ hop.name }}
@@ -63,13 +50,9 @@
         <div class="col-md-4">
             <ul class="list-group">
                 <li class="list-group-item active">Yeast</li>
+                {% for yeast in recipe.yeastil_set.all %}
                 <li class="list-group-item">
-                    <span class="badge">1 billion</span>
-                    WLP 530
-                </li>
-                {% for yeast in recipe.yeast_set.all %}
-                <li class="list-group-item">
-                    <span class="badge">{{ yeast.amount }}</span>
+                    <span class="badge">{{ yeast.pitchrate }}</span>
                     {{ yeast.name }}
                 </li>
                 {% endfor %}
